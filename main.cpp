@@ -15,7 +15,13 @@ string sortString(const string &str) {
 
 // Function to check if two words are anagrams
 bool areAnagrams(const string &word1, const string &word2) {
-  return sortString(word1) == sortString(word2);
+  string sorted_word1 = sortString(word1);
+  string sorted_word2 = sortString(word2);
+
+  return std::includes(sorted_word1.begin(),sorted_word1.end(),
+                        sorted_word2.begin(),sorted_word2.end()); //Checks whether letters of word2 are a subset of the letters in word 1
+
+  //sortString(word1) == sortString(word2);
 }
 
 // Function to find and return all anagrams in the file
